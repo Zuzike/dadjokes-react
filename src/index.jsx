@@ -1,15 +1,18 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
-import user02 from './img/users/user02.png';
+import user01 from '../assets/user02.png';
+import { useState } from 'react';
 
 const App = () => {
+  const [cisloUp, setCisloUp] = useState(0);
+  const [cisloDown, setCisloDown] = useState(0);
   return (
     <div className="container">
       <div className="joke">
         <div className="joke__body">
           <div className="joke__user">
-            <img className="user-avatar" src={user02.png} />
+            <img className="user-avatar" src={user01.png} />
             <p className="user-name">Neroxx</p>
           </div>
 
@@ -20,13 +23,25 @@ const App = () => {
           </p>
         </div>
         <div className="joke__likes">
-          <button id="btn-up" className="btn-like btn-like--up"></button>
+          <button
+            id="btn-up"
+            className="btn-like btn-like--up"
+            onClick={() => {
+              setCisloUp(cisloUp + 1);
+            }}
+          ></button>
           <span id="likes-up" className="likes-count likes-count--up">
-            0
+            {cisloUp}
           </span>
-          <button id="btn-down" className="btn-like btn-like--down"></button>
+          <button
+            id="btn-down"
+            className="btn-like btn-like--down"
+            onClick={() => {
+              setCisloDown(cisloDown + 1);
+            }}
+          ></button>
           <span id="likes-down" className="likes-count likes-count--down">
-            0
+            {cisloDown}
           </span>
         </div>
       </div>
